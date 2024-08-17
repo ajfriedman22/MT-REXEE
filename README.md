@@ -5,4 +5,4 @@ If you would like to learn more about the base method please check out the initi
 
 To read more about the MT-REXEE metho please read the [pre-print paper]().
 
-For access to the code to run MT-REXEE visit the [GitHub Repository](https://github.com/shirtsgroup/ensemble_md).
+For access to the code to run REXEE visit the [GitHub Repository](https://github.com/shirtsgroup/ensemble_md).
