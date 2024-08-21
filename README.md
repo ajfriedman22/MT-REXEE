@@ -3,6 +3,6 @@ This is a central space to access information related to Multiple Topology Repli
 
 If you would like to learn more about the base method please check out the initial [REXEE paper](https://pubs.acs.org/doi/10.1021/acs.jctc.4c00484)
 
-To read more about the MT-REXEE metho please read the [pre-print paper]().
+To read more about the MT-REXEE metho please read the [pre-print paper](https://arxiv.org/abs/2408.11038).
 
 For access to the code to run REXEE visit the [GitHub Repository](https://github.com/shirtsgroup/ensemble_md).
