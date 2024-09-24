@@ -1,0 +1,77 @@
+; All  unspecified  parameters  adopt  their  own  defaults  values.
+
+; Preprocessing
+; title         = Production
+; Run parameters
+integrator = md-vv
+nsteps = 30000000
+dt = 0.002
+; Output control
+nstenergy = 5000
+nstlog = 500
+nstxout = 1000
+; Bond parameters
+continuation = no
+constraint_algorithm = lincs
+constraints = h-bonds
+lincs_iter = 2
+lincs_order = 4
+; Neighbor searching and vdW
+cutoff_scheme = Verlet
+ns_type = grid
+nstlist = 40
+rlist = 1.0
+vdwtype = cutoff
+vdw_modifier = Potential-switch
+rvdw_switch = 0.98
+rvdw = 1.0
+; Electrostatics
+coulombtype = PME
+rcoulomb = 1.0
+pme_order = 4
+fourierspacing = 0.12
+; Temperature coupling
+tcoupl = V-rescale
+tc_grps = System
+tau_t = 2.0
+ref_t = 300
+; Pressure coupling
+pcoupl = no
+refcoord_scaling = com
+; Periodic boundary conditions
+pbc = xyz
+; Dispersion correction is not used for proteins with the C36 additive FF
+DispCorr = EnerPres
+; Velocity generation
+gen_vel = yes
+gen_temp = 300
+gen_seed = -1
+
+; Free energy calculation
+free_energy = expanded
+calc_lambda_neighbors = -1
+sc_alpha = 0.3
+sc_coul = yes
+couple_lambda0 = vdw-q
+couple_lambda1 = vdw-q
+init_lambda_state = 0
+nstdhdl = 100
+dhdl_print_energy = total
+; Seed for Monte Carlo in lambda space
+lmc_seed = -1
+lmc_gibbsdelta = -1
+lmc_forced_nstart = 0
+symmetrized_transition_matrix = no
+nst_transition_matrix = 100000
+; expanded ensemble variables
+nstexpanded = 100
+nstcalcenergy = 100
+lmc_stats = no
+lmc_move = metropolized-gibbs
+lmc_weights_equil = yes
+; Free energy calculation
+init_lambda_weights = 0.0 -0.02015 -0.00598 -0.00701 0.0554 5.24333 10.0174 14.60432 15.72577 16.64109 14.21739 14.19389 14.27769 14.27629 14.27426 0.0 -0.05739 0.03039 -0.12174 -0.04283 3.61332 5.67222 6.67995 6.65566 6.09677 2.16603 2.16262 2.19394 2.1614 2.15468 0.0 0.04889 0.02632 0.01719 0.04989 3.99923 7.2247 10.08677 10.70539 11.2049 9.14335 9.14477 9.15302 9.13422 9.12238 0.0 -0.00453 -0.08084 -0.052 -0.04547 -1.86493 -4.15157 -3.60052 -2.35895 0.28753 3.53162 3.6282 3.63379 3.58096 3.62714 0.0 -0.00601 -0.00116 0.03203 -0.03049 0.74072 -1.88302 -6.48015 -7.94291 -10.18301 -14.49992 -14.49123 -14.52423 -14.51079 -14.52918 0.0 0.04019 -0.04036 0.01886 0.00236 6.87737 16.86015 33.70146 40.22632 50.51603 57.10995 57.0949 57.07928 57.06851 57.1201 0.0 -0.03808 -0.04329 0.00665 -0.00991 4.12846 8.29029 16.28425 20.02542 26.46961 29.71544 29.7331 29.7202 29.73045 29.69573 0.0 0.0069 -0.02186 -0.02303 -0.01786 3.78783 7.71251 15.65732 19.05182 24.40109 26.8033 26.81325 26.82525 26.86608 26.85099
+coul_lambdas = 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0
+vdw_lambdas = 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0
+bonded_lambdas = 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0
+

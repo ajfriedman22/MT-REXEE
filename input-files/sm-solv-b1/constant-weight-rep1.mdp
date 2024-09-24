@@ -1,0 +1,77 @@
+; All  unspecified  parameters  adopt  their  own  defaults  values.
+
+; Preprocessing
+; title         = Production
+; Run parameters
+integrator = md-vv
+nsteps = 30000000
+dt = 0.002
+; Output control
+nstenergy = 5000
+nstlog = 500
+nstxout = 1000
+; Bond parameters
+continuation = no
+constraint_algorithm = lincs
+constraints = h-bonds
+lincs_iter = 2
+lincs_order = 4
+; Neighbor searching and vdW
+cutoff_scheme = Verlet
+ns_type = grid
+nstlist = 40
+rlist = 1.0
+vdwtype = cutoff
+vdw_modifier = Potential-switch
+rvdw_switch = 0.98
+rvdw = 1.0
+; Electrostatics
+coulombtype = PME
+rcoulomb = 1.0
+pme_order = 4
+fourierspacing = 0.12
+; Temperature coupling
+tcoupl = V-rescale
+tc_grps = System
+tau_t = 2.0
+ref_t = 300
+; Pressure coupling
+pcoupl = no
+refcoord_scaling = com
+; Periodic boundary conditions
+pbc = xyz
+; Dispersion correction is not used for proteins with the C36 additive FF
+DispCorr = EnerPres
+; Velocity generation
+gen_vel = yes
+gen_temp = 300
+gen_seed = -1
+
+; Free energy calculation
+free_energy = expanded
+calc_lambda_neighbors = -1
+sc_alpha = 0.3
+sc_coul = yes
+couple_lambda0 = vdw-q
+couple_lambda1 = vdw-q
+init_lambda_state = 0
+nstdhdl = 100
+dhdl_print_energy = total
+; Seed for Monte Carlo in lambda space
+lmc_seed = -1
+lmc_gibbsdelta = -1
+lmc_forced_nstart = 0
+symmetrized_transition_matrix = no
+nst_transition_matrix = 100000
+; expanded ensemble variables
+nstexpanded = 100
+nstcalcenergy = 100
+lmc_stats = no
+lmc_move = metropolized-gibbs
+lmc_weights_equil = yes
+; Free energy calculation
+init_lambda_weights = 0.0 -0.02296 -0.02931 -0.02729 0.03205 5.07979 9.91958 14.56874 15.66537 16.71801 14.35122 14.34423 14.31274 14.33593 14.32512 0.0 -0.00834 0.05965 -0.00735 0.05875 3.67978 5.71704 6.63843 6.69582 6.18581 2.1313 2.10809 2.13866 2.1322 2.20609 0.0 0.01859 0.0308 -0.04752 0.01162 3.87928 7.02474 9.85344 10.46988 10.95899 8.84414 8.80891 8.80341 8.83473 8.85245 0.0 -0.03381 -0.03792 -0.0572 -0.04377 -1.87719 -4.24828 -3.89051 -2.62652 0.10926 3.57186 3.60472 3.58344 3.5552 3.62073 0.0 -0.04301 -0.01311 -0.05388 -0.06206 1.11547 -0.65389 -4.59406 -5.99563 -8.36946 -13.08057 -13.06931 -13.09288 -13.07767 -13.08719 0.0 -0.04663 -0.03112 0.00877 0.01519 4.98094 10.98147 18.28703 20.39468 23.15274 23.16973 23.19409 23.13932 23.20226 23.2234 0.0 -0.03068 -0.02872 -0.01598 0.0164 1.64351 0.97207 -1.47101 -2.58454 -4.55311 -8.9431 -8.95631 -8.94696 -8.94867 -8.95525
+coul_lambdas = 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0
+vdw_lambdas = 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0
+bonded_lambdas = 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 0.6 0.7 0.85 1.0 1.0 1.0 1.0 1.0
+
